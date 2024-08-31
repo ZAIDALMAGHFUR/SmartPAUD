@@ -9,7 +9,7 @@ RateLimiter::for('global', function (Request $request) {
     return Limit::perMinute(1000)->by($request->ip());
 });
 
-Route::prefix('services/simpaud')->group(function () {
+Route::prefix('services/smartpaud')->group(function () {
 
     // Rute untuk register dan signature
     Route::post('register/header', [App\Http\Controllers\Admin\Master\RegistrationController::class, 'register']);
