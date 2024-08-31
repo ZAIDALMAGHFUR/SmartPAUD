@@ -13,7 +13,7 @@ class StatusSiswaController extends Controller
 
     public function index()
     {
-        $StatusSiswa = App\Models\StatusSiswa::where('statusenabled', $this->statusEnabled())
+        $StatusSiswa = App\Models\Master\StatusSiswa::where('statusenabled', $this->statusEnabled())
             ->where('kdprofile', $this->kdprofile())
             ->get();
 
@@ -26,10 +26,10 @@ class StatusSiswaController extends Controller
 
     public function show($id)
     {
-        $StatusSiswa = App\Models\StatusSiswa::find($id);
+        $StatusSiswa = App\Models\Master\StatusSiswa::find($id);
 
         if ($StatusSiswa) {
-            return $this->successResponse('Status Siswa Berhasil Di Tampilkan', $StatusPendaftaran);
+            return $this->successResponse('Status Siswa Berhasil Di Tampilkan', $StatusSiswa);
         } else {
             return $this->failedResponse('Status Siswa Tidak Di Temukan');
         }
@@ -42,7 +42,7 @@ class StatusSiswaController extends Controller
                 'nama' => 'required',
             ]);
 
-            $StatusSiswa = App\Models\StatusSiswa::create([
+            $StatusSiswa = App\Models\Master\StatusSiswa::create([
                 'kdprofile' => $this->kdprofile(),
                 'statusenabled' => $this->statusEnabled(),
                 'nama' => $request->nama,
@@ -58,7 +58,7 @@ class StatusSiswaController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $StatusSiswa = App\Models\StatusSiswa::find($id);
+            $StatusSiswa = App\Models\Master\StatusSiswa::find($id);
 
             if ($StatusSiswa) {
                 $StatusSiswa->update([
@@ -68,9 +68,9 @@ class StatusSiswaController extends Controller
                 ]);
 
                 $log = $this->logActivity('Update', $request, json_encode($StatusSiswa));
-                return $this->successResponse('Status Pendaftaran Berhasil Di Perharui', $StatusSiswa);
+                return $this->successResponse('Status Siswa Berhasil Di Perharui', $StatusSiswa);
             } else {
-                return $this->failedResponse('Status Pendaftaran Tidak Di Temukan');
+                return $this->failedResponse('Status Siswa Tidak Di Temukan');
             }
         } catch (\Exception $e) {
             return $this->failedResponse($e->getMessage());
@@ -79,7 +79,7 @@ class StatusSiswaController extends Controller
 
     public function destroy(Request $request, $id)
     {
-        $StatusSiswa = App\Models\Createsh. StatusSiswa::find($id);
+        $StatusSiswa = App\Models\Master\StatusSiswa::find($id);
 
         if ($StatusSiswa) {
             $StatusSiswa->update([

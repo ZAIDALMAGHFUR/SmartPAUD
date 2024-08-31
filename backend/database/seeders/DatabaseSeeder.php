@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
             PegawaiSeeder::class,
             StatusPendaftaran::class,
             StatusSiswaSeeder::class,
+            StatusMasukSeeder::class,
         ]);
     }
 }
