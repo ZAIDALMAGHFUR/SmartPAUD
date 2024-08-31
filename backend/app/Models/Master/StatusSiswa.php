@@ -14,6 +14,6 @@ class StatusSiswa extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'name',
+        'nama',
     ];
 }
