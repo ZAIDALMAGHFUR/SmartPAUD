@@ -50,34 +50,6 @@ Route::prefix('services/smartpaud')->group(function () {
             Route::apiResource('kelompokpegawai', App\Http\Controllers\Admin\Master\KelompokPegawaiController::class);
             Route::apiResource('shiftkerja', App\Http\Controllers\Admin\Master\ShiftKerjaController::class);
             Route::apiResource('pegawai', App\Http\Controllers\Admin\Master\PegawaiController::class);
-            Route::apiResource('jalurpendaftaran', App\Http\Controllers\Admin\Master\JalurPendaftaranController::class);
-            Route::apiResource('statuspendaftaran', App\Http\Controllers\Admin\Master\StatusPendaftaranController::class);
-            Route::apiResource('tahunajaran', App\Http\Controllers\Admin\Master\TahunAjaranController::class);
-            Route::apiResource('jenjangpendidikan', App\Http\Controllers\Admin\Master\JenjangPendidikanController::class);
-            Route::apiResource('jurusan', App\Http\Controllers\Admin\Master\JurusanController::class);
-            Route::apiResource('ppdb', App\Http\Controllers\Admin\Master\PpdbController::class);
-            Route::apiResource('jenispembayaran', App\Http\Controllers\Admin\Master\JenisPembayaranController::class);
-            Route::apiResource('statuspembayaran', App\Http\Controllers\Admin\Master\StatusPembayaranController::class);
-            Route::apiResource('ppdbpembayaran', App\Http\Controllers\Admin\Master\PpdbPembayaranController::class);
-            Route::apiResource('kelas', App\Http\Controllers\Admin\Master\KelasController::class);
-            Route::apiResource('matapelajaran', App\Http\Controllers\Admin\Master\MataPelajaranController::class);
-            Route::apiResource('jadwalpelajaran', App\Http\Controllers\Admin\Master\JadwalPelajaranController::class);
-            Route::apiResource('statussiswa', App\Http\Controllers\Admin\Master\StatusSiswaController::class);
-            Route::apiResource('siswa', App\Http\Controllers\Admin\Master\SiswaController::class);
-            Route::apiResource('orangtua', App\Http\Controllers\Admin\Master\OrangTuaController::class);
-            Route::apiResource('siswatransaksi', App\Http\Controllers\Admin\Master\SiswaTransaksiController::class);
-            Route::apiResource('ekstrakurikuler', App\Http\Controllers\Admin\Master\EkstrakurikulerController::class);
-            Route::apiResource('ekstrakurikulersiswa', App\Http\Controllers\Admin\Master\EkstrakurikulerSiswaController::class);
-            Route::apiResource('sikapsiswa', App\Http\Controllers\Admin\Master\SikapSiswaController::class);
-            Route::apiResource('sikapsiswatransaksi', App\Http\Controllers\Admin\Master\SikapSiswaTransaksiController::class);
-            Route::apiResource('historykesehatansiswa', App\Http\Controllers\Admin\Master\HistoryKesehatanSiswaController::class);
-            Route::apiResource('materisiswa', App\Http\Controllers\Admin\Master\MateriSiswaController::class);
-            Route::apiResource('tugassiswa', App\Http\Controllers\Admin\Master\TugasSiswaController::class);
-            Route::apiResource('tugassiswadetail', App\Http\Controllers\Admin\Master\TugasSiswaDetailController::class);
-            Route::apiResource('jawabantugassiswa', App\Http\Controllers\Admin\Master\JawabanTugasSiswaController::class);
-            Route::apiResource('jawabantugassiswadetail', App\Http\Controllers\Admin\Master\JawabanTugasSiswaDetailController::class);
-            Route::apiResource('absen', App\Http\Controllers\Admin\Master\AbsenController::class);
-            Route::apiResource('jadwalujian', App\Http\Controllers\Admin\Master\JadwalUjianController::class);
 
             Route::get('get-logingusers/{tglawal}/{tglakhir}', [App\Http\Controllers\Admin\Master\LogingUsers\LogingUsersController::class, 'GetUsingFilters']);
 
