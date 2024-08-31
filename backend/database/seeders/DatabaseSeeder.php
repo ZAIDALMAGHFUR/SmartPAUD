@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             HubunganKeluargaSeeder::class,
             ShiftKerjaSeeder::class,
             PegawaiSeeder::class,
+            StatusPendaftaran::class,
         ]);
     }
 }
