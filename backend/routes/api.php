@@ -53,6 +53,8 @@ Route::prefix('services/smartpaud')->group(function () {
             Route::apiResource('statuspendaftaran', App\Http\Controllers\Admin\Master\StatusPendaftaranController::class);
             Route::apiResource('statussiswa', App\Http\Controllers\Admin\Master\StatusSiswaController::class);
             Route::apiResource('statusmasuk', App\Http\Controllers\Admin\Master\StatusMasukController::class);
+            Route::apiResource('tahunajaran', App\Http\Controllers\Admin\Master\TahunAjaranController::class);
+            Route::apiResource('jadwalppdb', App\Http\Controllers\Admin\Master\JadwalPpdbController::class);
 
             Route::get('get-logingusers/{tglawal}/{tglakhir}', [App\Http\Controllers\Admin\Master\LogingUsers\LogingUsersController::class, 'GetUsingFilters']);
 

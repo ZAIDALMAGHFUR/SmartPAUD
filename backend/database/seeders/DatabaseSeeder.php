@@ -40,6 +40,8 @@ class DatabaseSeeder extends Seeder
             StatusPendaftaran::class,
             StatusSiswaSeeder::class,
             StatusMasukSeeder::class,
+            TahunAjaranSeeder::class,
+            JadwalPpdbSeeder::class,
         ]);
     }
 }
