@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Replace these variables with your actual details
-REPO_URL="https://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@github.com/ZAIDALMAGHFUR/SmartPAUD.git"
+REPO_URL="https://@github.com/ZAIDALMAGHFUR/SmartPAUD.git"
 BRANCH="main"
 
 # Add all changes
