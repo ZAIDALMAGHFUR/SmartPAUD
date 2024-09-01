@@ -14,6 +14,6 @@ class StatusPembayaran extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'name',
+        'nama',
     ];
 }

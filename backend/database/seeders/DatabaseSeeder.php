@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
             UnitKerjaSeeder::class,
             KategorypegawaiSeeder::class,
             StatusPegawaiSeeder::class,
+            StatusPembayaranSeeder::class,
             KelompokpegawaiSeeder::class,
             HubunganKeluargaSeeder::class,
             ShiftKerjaSeeder::class,
