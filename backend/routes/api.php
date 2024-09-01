@@ -24,6 +24,7 @@ Route::prefix('services/smartpaud')->group(function () {
         Route::get('provinces/{provinsi_id}/kabupatens', [App\Http\Controllers\Admin\Master\Region\RegionController::class, 'getKabupatens']);
         Route::get('kabupatens/{kabupaten_id}/kecamatans', [App\Http\Controllers\Admin\Master\Region\RegionController::class, 'getKecamatans']);
         Route::get('kecamatans/{kecamatan_id}/kelurahans', [App\Http\Controllers\Admin\Master\Region\RegionController::class, 'getKelurahans']);
+        Route::get('kelurahantoprovinsi/{name}', [App\Http\Controllers\Admin\Master\Region\RegionController::class, 'getKelurahanToProvinsi']);
 
         Route::middleware(['auth:sanctum'])->group(function () {
 
@@ -57,6 +58,7 @@ Route::prefix('services/smartpaud')->group(function () {
             Route::apiResource('jadwalppdb', App\Http\Controllers\Admin\Master\JadwalPpdbController::class);
             Route::apiResource('statustempattinggal', App\Http\Controllers\Admin\Master\StatusTempatTinggalController::class);
             Route::apiResource('ppdb', App\Http\Controllers\Admin\Master\PpdbController::class);
+            Route::apiResource('jenispembayaran', App\Http\Controllers\Admin\Master\JenisPembayaranController::class);
 
             Route::get('get-logingusers/{tglawal}/{tglakhir}', [App\Http\Controllers\Admin\Master\LogingUsers\LogingUsersController::class, 'GetUsingFilters']);
 

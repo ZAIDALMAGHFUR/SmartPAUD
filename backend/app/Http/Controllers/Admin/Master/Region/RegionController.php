@@ -60,4 +60,14 @@ class RegionController extends Controller
         $provinces = App\Models\Master\Provinsi::with('kabupaten','kabupaten.kecamatan','kabupaten.kecamatan.kelurahan')->get();
         return response()->json($provinces);
     }
+
+    public function getKelurahanToProvinsi($kelurahanName)
+    {
+        $kelurahan = \App\Models\Master\Kelurahan::with('kecamatan.kabupaten.provinsi')
+            ->where('name', $kelurahanName)
+            ->get();
+
+        return response()->json($kelurahan);
+    }
+
 }

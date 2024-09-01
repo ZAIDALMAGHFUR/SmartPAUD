@@ -14,6 +14,6 @@ class JenisPembayaran extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'name'
+        'nama'
     ];
 }

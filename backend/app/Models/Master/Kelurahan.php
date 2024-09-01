@@ -21,4 +21,9 @@ class Kelurahan extends Model
     {
         return $this->belongsTo(Kabupaten::class);
     }
+
+    public function kecamatan(): BelongsTo
+    {
+        return $this->belongsTo(Kecamatan::class);
+    }
 }
