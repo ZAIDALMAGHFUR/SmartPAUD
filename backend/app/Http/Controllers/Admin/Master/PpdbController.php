@@ -99,6 +99,7 @@ class PpdbController extends Controller
                 'kelompokditerima' => $request->kelompokditerima,
                 'statuspendaftaran_id' => $request->statuspendaftaran_id,
                 'alasanpenolakan' => $request->alasanpenolakan,
+                'nohandphone' => $request->nohandphone,
             ]);
 
             $log = $this->logActivity('Create', $request, json_encode($ppdb));
@@ -210,6 +211,7 @@ class PpdbController extends Controller
                 'kelompokditerima' => $request->kelompokditerima,
                 'statuspendaftaran_id' => $request->statuspendaftaran_id,
                 'alasanpenolakan' => $request->alasanpenolakan,
+                'nohandphone' => $request->nohandphone,
             ]);
 
             $log = $this->logActivity('Update', $request, json_encode($ppdb));

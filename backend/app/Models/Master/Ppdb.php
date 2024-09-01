@@ -53,7 +53,8 @@ class Ppdb extends Model
         'kelompokditerima',
         'statuspendaftaran_id',
         'alasanpenolakan',
-        'nopendaftaran'
+        'nopendaftaran',
+        'nohandphone',
     ];
 
     public function user()

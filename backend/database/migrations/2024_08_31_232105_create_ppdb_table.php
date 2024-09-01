@@ -72,7 +72,10 @@ return new class extends Migration
             $table->unsignedBigInteger('statuspendaftaran_id')->nullable()->index();
             $table->foreign('statuspendaftaran_id')->references('id')->on('statuspendaftaran')->onDelete('set null')->onUpdate('cascade');
             $table->string('alasanpenolakan')->nullable();
-            $table->string('nopendaftaran')->index();  // Indexed for faster search
+            $table->string('nopendaftaran')->index();
+
+            //personal info
+            $table->string('nohandphone')->index();
             $table->timestamps();
         });
     }

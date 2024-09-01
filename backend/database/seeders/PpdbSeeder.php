@@ -54,6 +54,7 @@ class PpdbSeeder extends Seeder
                 'kelompokditerima' => 'A',
                 'statuspendaftaran_id' => 1,
                 'alasanpenolakan' => null,
+                'nohandphone' => 6285797703142,
             ],
             [
                 'statusenabled' => true,
@@ -96,6 +97,7 @@ class PpdbSeeder extends Seeder
                 'kelompokditerima' => 'B',
                 'statuspendaftaran_id' => 1,
                 'alasanpenolakan' => null,
+                'nohandphone' => 6285797703142,
             ],
             [
                 'statusenabled' => true,
@@ -138,6 +140,7 @@ class PpdbSeeder extends Seeder
                 'kelompokditerima' => 'B',
                 'statuspendaftaran_id' => 2,
                 'alasanpenolakan' => 'Tidak sesuai usia',
+                'nohandphone' => 6285797703142,
             ]
         ];
 
