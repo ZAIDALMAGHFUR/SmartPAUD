@@ -46,6 +46,7 @@ class DatabaseSeeder extends Seeder
             JadwalPpdbSeeder::class,
             StatusTempatTinggalSeeder::class,
             PpdbSeeder::class,
+            PpdbPembayaranSeeder::class,
         ]);
     }
 }

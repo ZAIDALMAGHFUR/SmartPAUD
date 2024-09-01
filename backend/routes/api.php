@@ -60,6 +60,7 @@ Route::prefix('services/smartpaud')->group(function () {
             Route::apiResource('ppdb', App\Http\Controllers\Admin\Master\PpdbController::class);
             Route::apiResource('jenispembayaran', App\Http\Controllers\Admin\Master\JenisPembayaranController::class);
             Route::apiResource('statuspembayaran', App\Http\Controllers\Admin\Master\StatusPembayaranController::class);
+            Route::apiResource('ppdbpembayaran', App\Http\Controllers\Admin\Master\PpdbPembayaranController::class);
 
             Route::get('get-logingusers/{tglawal}/{tglakhir}', [App\Http\Controllers\Admin\Master\LogingUsers\LogingUsersController::class, 'GetUsingFilters']);
 
