@@ -2,7 +2,7 @@
 
 namespace App\Models\Master;
 
-use App\Models\Users;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -13,103 +13,122 @@ class Ppdb extends Model
     protected $table = 'ppdb';
 
     protected $fillable = [
-        'kdprofile',
         'statusenabled',
+        'kdprofile',
+        'users_id',
         'namalengkap',
-        'agama_id',
+        'namapanggilan',
         'jeniskelamin_id',
-        'tgllahir',
+        'tanggallahir',
         'tempatlahir',
-        'alamat',
-        'jalurpendaftaran_id',
-        'tahunajaran_id',
-        'jenjangpendidikan_id',
-        'jurusan_id',
-        'provinsi_id',
-        'kabupaten_id',
-        'kecamatan_id',
-        'kelurahan_id',
-        'asalsekolah',
-        'nohp',
-        'email',
+        'agama_id',
+        'warganegara_id',
+        'anaknomorke',
+        'jumlahsaudarakandung',
+        'jumlahsaudaratiri',
+        'jumlahsaudaraangkat',
+        'bahasaseharihari',
+        'beratbadan',
+        'tinggibadan',
+        'golongandarah_id',
+        'penyakitpernahdiderita',
+        'alamattempattinggal',
+        'nomortelepon',
+        'statustempattinggal_id',
         'namaayah',
         'namaibu',
-        'nohpayah',
-        'nohpibu',
-        'pekerjaanayah',
-        'pekerjaanibu',
-        'alamatortu',
-        'rt',
-        'rw',
-        'kodepos',
-        'nokk',
-        'noktp',
+        'pendidikan_ayah_id',
+        'pendidikan_ibu_id',
+        'pekerjaan_ayah_id',
+        'pekerjaan_ibu_id',
+        'namawali',
+        'pendidikan_wali_id',
+        'hubunganwali_id',
+        'pekerjaan_wali_id',
+        'statusmasuk_id',
+        'namatkasal',
+        'tanggalpindahan',
+        'kelompokpindahan',
+        'tanggalditerima',
+        'kelompokditerima',
         'statuspendaftaran_id',
-        'keterangan',
-        'photo',
-        'noinduk',
-        'nopendaftaran',
-        'users_id'
+        'alasanpenolakan',
+        'nopendaftaran'
     ];
 
-    public function Users()
+    public function user()
     {
-        return $this->belongsTo(Users::class);
+        return $this->belongsTo(User::class, 'users_id');
+    }
+
+    public function jenisKelamin()
+    {
+        return $this->belongsTo(JenisKelamin::class, 'jeniskelamin_id');
     }
 
     public function agama()
     {
-        return $this->belongsTo(Agama::class);
+        return $this->belongsTo(Agama::class, 'agama_id');
     }
 
-    public function jeniskelamin()
+    public function wargaNegara()
     {
-        return $this->belongsTo(Jeniskelamin::class);
+        return $this->belongsTo(WargaNegara::class, 'warganegara_id');
     }
 
-    public function jalurpendaftaran()
+    public function golonganDarah()
     {
-        return $this->belongsTo(Jalurpendaftaran::class);
+        return $this->belongsTo(GolonganDarah::class, 'golongandarah_id');
     }
 
-    public function tahunajaran()
+    public function statusTempatTinggal()
     {
-        return $this->belongsTo(Tahunajaran::class);
+        return $this->belongsTo(StatusTempatTinggal::class, 'statustempattinggal_id');
     }
 
-    public function jenjangpendidikan()
+    public function pendidikanAyah()
     {
-        return $this->belongsTo(Jenjangpendidikan::class);
+        return $this->belongsTo(Pendidikan::class, 'pendidikan_ayah_id');
     }
 
-    public function jurusan()
+    public function pendidikanIbu()
     {
-        return $this->belongsTo(Jurusan::class);
+        return $this->belongsTo(Pendidikan::class, 'pendidikan_ibu_id');
     }
 
-    public function provinsi()
+    public function pekerjaanAyah()
     {
-        return $this->belongsTo(Provinsi::class);
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_ayah_id');
     }
 
-    public function kabupaten()
+    public function pekerjaanIbu()
     {
-        return $this->belongsTo(Kabupaten::class);
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_ibu_id');
     }
 
-    public function kecamatan()
+    public function pendidikanWali()
     {
-        return $this->belongsTo(Kecamatan::class);
+        return $this->belongsTo(Pendidikan::class, 'pendidikan_wali_id');
     }
 
-    public function kelurahan()
+    public function hubunganWali()
     {
-        return $this->belongsTo(Kelurahan::class);
+        return $this->belongsTo(HubunganKeluarga::class, 'hubunganwali_id');
     }
 
-    public function statuspendaftaran()
+    public function pekerjaanWali()
     {
-        return $this->belongsTo(Statuspendaftaran::class);
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_wali_id');
+    }
+
+    public function statusMasuk()
+    {
+        return $this->belongsTo(StatusMasuk::class, 'statusmasuk_id');
+    }
+
+    public function statusPendaftaran()
+    {
+        return $this->belongsTo(StatusPendaftaran::class, 'statuspendaftaran_id');
     }
 
     protected static function boot()
