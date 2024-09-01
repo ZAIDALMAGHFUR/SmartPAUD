@@ -47,15 +47,15 @@ class PpdbController extends Controller
         try {
             $request->validate([
                 'namalengkap' => 'required',
-                'jeniskelamin_id' => 'required|exists:jenis_kelamin,id',
-                'tanggallahir' => 'required|date',
+                'jeniskelamin_id' => 'required',
+                'tanggallahir' => 'required',
                 'tempatlahir' => 'required',
-                'agama_id' => 'required|exists:agama,id',
-                'warganegara_id' => 'required|exists:warga_negara,id',
-                'statustempattinggal_id' => 'required|exists:status_tempat_tinggal,id',
+                'agama_id' => 'required',
+                'warganegara_id' => 'required',
+                'statustempattinggal_id' => 'required',
                 'namaayah' => 'required',
                 'namaibu' => 'required',
-                'statuspendaftaran_id' => 'required|exists:status_pendaftaran,id',
+                'statuspendaftaran_id' => 'required',
             ]);
 
             $ppdb = App\Models\Master\Ppdb::create([
@@ -141,15 +141,15 @@ class PpdbController extends Controller
         try {
             $request->validate([
                 'namalengkap' => 'required',
-                'jeniskelamin_id' => 'required|exists:jenis_kelamin,id',
-                'tanggallahir' => 'required|date',
+                'jeniskelamin_id' => 'required',
+                'tanggallahir' => 'required',
                 'tempatlahir' => 'required',
-                'agama_id' => 'required|exists:agama,id',
-                'warganegara_id' => 'required|exists:warga_negara,id',
-                'statustempattinggal_id' => 'required|exists:status_tempat_tinggal,id',
+                'agama_id' => 'required',
+                'warganegara_id' => 'required',
+                'statustempattinggal_id' => 'required',
                 'namaayah' => 'required',
                 'namaibu' => 'required',
-                'statuspendaftaran_id' => 'required|exists:status_pendaftaran,id',
+                'statuspendaftaran_id' => 'required',
             ]);
 
             $ppdb = \App\Models\Master\Ppdb::with([
@@ -213,7 +213,7 @@ class PpdbController extends Controller
             ]);
 
             $log = $this->logActivity('Update', $request, json_encode($ppdb));
-            return $this->successUpdatedResponse('PPDB updated successfully', $ppdb);
+            return $this->successResponse('PPDB updated successfully', $ppdb);
         } catch (\Exception $e) {
             return $this->failedResponse($e->getMessage());
         }
@@ -245,7 +245,7 @@ class PpdbController extends Controller
                 'statusenabled' => 0,
             ]);
             $log = $this->logActivity('Delete', $request, json_encode($ppdb));
-            return $this->successDeletedResponse('PPDB deleted successfully', $ppdb);
+            return $this->successResponse('PPDB deleted successfully', $ppdb);
         } else {
             return $this->failedResponse('PPDB not found');
         }

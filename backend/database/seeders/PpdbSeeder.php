@@ -16,7 +16,7 @@ class PpdbSeeder extends Seeder
             [
                 'statusenabled' => true,
                 'kdprofile' => '1',
-                'users_id' => 3,
+                'users_id' => 16,
                 'namalengkap' => 'Ahmad Fauzi',
                 'namapanggilan' => 'Fauzi',
                 'jeniskelamin_id' => 1,
@@ -58,7 +58,7 @@ class PpdbSeeder extends Seeder
             [
                 'statusenabled' => true,
                 'kdprofile' => '1',
-                'users_id' => 4,
+                'users_id' => 17,
                 'namalengkap' => 'Nadia Putri',
                 'namapanggilan' => 'Nadia',
                 'jeniskelamin_id' => 2,
@@ -100,7 +100,7 @@ class PpdbSeeder extends Seeder
             [
                 'statusenabled' => true,
                 'kdprofile' => '1',
-                'users_id' => 5,
+                'users_id' => 18,
                 'namalengkap' => 'Rian Nugraha',
                 'namapanggilan' => 'Rian',
                 'jeniskelamin_id' => 1,

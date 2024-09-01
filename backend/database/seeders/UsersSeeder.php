@@ -55,7 +55,6 @@ class UsersSeeder extends Seeder
                 'locale' => null,
                 'ip_address' => null,
             ],
-            ,
             [
                 'username' => 'AhmadFauzi',
                 'password' => bcrypt('AhmadFauzi'),
