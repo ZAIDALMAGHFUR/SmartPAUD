@@ -48,6 +48,9 @@ class DatabaseSeeder extends Seeder
             PpdbSeeder::class,
             PpdbPembayaranSeeder::class,
             SiswaSeeder::class,
+            KelasSeeder::class,
+            MataPelajaranSeeder::class,
+            JadwalPelajaranSeeder::class,
         ]);
     }
 }

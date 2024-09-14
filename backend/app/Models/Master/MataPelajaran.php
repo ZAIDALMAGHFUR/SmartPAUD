@@ -14,12 +14,6 @@ class MataPelajaran extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'name',
-        'jenjangpendidikan_id',
+        'nama',
     ];
-
-    public function jenjangpendidikan()
-    {
-        return $this->belongsTo(JenjangPendidikan::class);
-    }
 }

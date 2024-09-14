@@ -14,6 +14,7 @@ class JadwalPelajaran extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
+        'jenis_kegiatan',
         'hari',
         'jam_mulai',
         'jam_selesai',
