@@ -15,37 +15,64 @@ class Siswa extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
+        'users_id',
+        'namalengkap',
+        'namapenggilan',
         'nisn',
         'nis',
-        'namalengkap',
         'nik',
-        'nohp',
         'email',
+        'jeniskelamin_id',
+        'statussiswa_id',
         'provinsi_id',
         'kabupaten_id',
         'kecamatan_id',
         'kelurahan_id',
-        'rt',
-        'rw',
-        'alamat',
         'tempatlahir',
-        'tgllahir',
-        'anakke',
-        'jmlsaudarakandung',
-        'jmlsaudaratiri',
-        'jmlsaudaraperempuan',
-        'jmlsaudaralaki',
-        'tinggibadan',
-        'beratbadan',
-        'jmlhafalan',
-        'jmlhafalansurat',
-        'jmlhafalanjuz',
-        'users_id',
+        'tanggallahir',
         'agama_id',
-        'jeniskelamin_id',
+        'warganegara_id',
+        'saudarakandung',
+        'saudaratiri',
+        'saudaraangkat',
+        'bahasaseharihari',
+        'beratbadan',
+        'tinggibadan',
         'golongandarah_id',
-        'statussiswa_id',
-        'photo'
+        'penyakitpernahdiderita',
+        'alamatrumah',
+        'nohandphone',
+        'statustempattinggal_id',
+        'jaraktempattinggalkesekolah',
+        'namaayah',
+        'namaibu',
+        'pendidikan_ayah_id',
+        'pendidikan_ibu_id',
+        'pekerjaan_ayah_id',
+        'pekerjaan_ibu_id',
+        'namawali',
+        'pendidikan_wali_id',
+        'hubunganwali_id',
+        'pekerjaan_wali_id',
+        'foto',
+        'asalpesertadidik',
+        'namalembaga',
+        'alamatlembaga',
+        'namalembagapindah',
+        'alamatlembagaasal',
+        'daritingkatkelompokumur',
+        'padatanggal',
+        'kelompokumur',
+        'tahunajaran_id',
+        'notanggalsuratketerangan',
+        'melanjutkelembaga',
+        'pindahlembagadarikelompokumur',
+        'pindahkelembaga',
+        'pindahlembagatingkatkelompokumur',
+        'pindahlembagapadatanggal',
+        'keluarlembagapadatanggal',
+        'sebabdanalasankeluarlembaga',
+        'catatanpenting'
     ];
 
     public function provinsi()
@@ -73,19 +100,19 @@ class Siswa extends Model
         return $this->belongsTo(Users::class);
     }
 
-    public function agama()
-    {
-        return $this->belongsTo(Agama::class);
-    }
-
     public function jenisKelamin()
     {
         return $this->belongsTo(JenisKelamin::class);
     }
 
-    public function golonganDarah()
+    public function TahunAjaran()
     {
-        return $this->belongsTo(GolonganDarah::class);
+        return $this->belongsTo(TahunAjaran::class);
+    }
+
+    public function agama()
+    {
+        return $this->belongsTo(Agama::class);
     }
 
     public function warganegara()
@@ -93,19 +120,54 @@ class Siswa extends Model
         return $this->belongsTo(Warganegara::class);
     }
 
+    public function golonganDarah()
+    {
+        return $this->belongsTo(GolonganDarah::class);
+    }
+
     public function statusSiswa()
     {
         return $this->belongsTo(StatusSiswa::class);
     }
 
-    public function orangTua()
+    public function statusTempatTinggal()
     {
-        return $this->hasOne(OrangTua::class);
+        return $this->belongsTo(StatusTempatTinggal::class, 'statustempattinggal_id');
     }
 
-    public function siswaTransaksi()
+    public function pendidikanAyah()
     {
-        return $this->hasMany(SiswaTransaksi::class);
+        return $this->belongsTo(Pendidikan::class, 'pendidikan_ayah_id');
+    }
+
+    public function pendidikanIbu()
+    {
+        return $this->belongsTo(Pendidikan::class, 'pendidikan_ibu_id');
+    }
+
+    public function pekerjaanAyah()
+    {
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_ayah_id');
+    }
+
+    public function pekerjaanIbu()
+    {
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_ibu_id');
+    }
+
+    public function pendidikanWali()
+    {
+        return $this->belongsTo(Pendidikan::class, 'pendidikan_wali_id');
+    }
+
+    public function hubunganWali()
+    {
+        return $this->belongsTo(HubunganKeluarga::class, 'hubunganwali_id');
+    }
+
+    public function pekerjaanWali()
+    {
+        return $this->belongsTo(Pekerjaan::class, 'pekerjaan_wali_id');
     }
 
     protected static function boot()
@@ -118,20 +180,19 @@ class Siswa extends Model
         });
     }
 
-    private static function generateNisn()
+    public static function generateNisn()
     {
-        $year = now()->year; // Menggunakan tahun saat ini
+        $year = now()->year;
         $lastNisn = self::latest('nisn')->first();
         $lastNumber = $lastNisn ? ((int) substr($lastNisn->nisn, 4)) + 1 : 1;
         return $year . str_pad($lastNumber, 5, '0', STR_PAD_LEFT);
     }
 
-    private static function generateNis()
+    public static function generateNis()
     {
-        $year = now()->year; // Menggunakan tahun saat ini
+        $year = now()->year;
         $lastNis = self::latest('nis')->first();
-        $lastNumber = $lastNis ? ((int) substr($lastNis->nis, 4)) + 1 : 1;
-        return $year . '9' . str_pad($lastNumber, 4, '0', STR_PAD_LEFT); // Menambahkan '9' untuk membedakan
+        $lastNumber = $lastNis ? ((int) substr($lastNis->nis, 5)) + 1 : 1;
+        return $year . '9' . str_pad($lastNumber, 5, '0', STR_PAD_LEFT); // Ensure uniqueness with 5 digits
     }
-
 }

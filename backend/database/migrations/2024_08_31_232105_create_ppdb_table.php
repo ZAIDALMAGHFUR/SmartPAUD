@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ppdb', function (Blueprint $table) {
             $table->id();
             $table->boolean('statusenabled')->nullable();
-            $table->string('kdprofile')->nullable();
+            $table->string('kdprofile')->index()->nullable();
             $table->unsignedBigInteger('users_id')->nullable();
             $table->foreign('users_id')->references('id')->on('users')->nullable();
             $table->string('namalengkap')->index();  // Index for commonly searched columns
@@ -22,22 +22,22 @@ return new class extends Migration
             $table->unsignedBigInteger('jeniskelamin_id')->nullable()->index();
             $table->foreign('jeniskelamin_id')->references('id')->on('jeniskelamin')->onDelete('set null')->onUpdate('cascade');
             $table->date('tanggallahir')->index();
-            $table->string('tempatlahir');
+            $table->string('tempatlahir')->nullable()->index();
             $table->unsignedBigInteger('agama_id')->nullable()->index();
             $table->foreign('agama_id')->references('id')->on('agama')->onDelete('set null')->onUpdate('cascade');
             $table->unsignedBigInteger('warganegara_id')->nullable()->index();
             $table->foreign('warganegara_id')->references('id')->on('warganegara')->onDelete('set null')->onUpdate('cascade');
             $table->integer('anaknomorke')->index();
-            $table->integer('jumlahsaudarakandung');
+            $table->integer('jumlahsaudarakandung')->nullable()->index();
             $table->integer('jumlahsaudaratiri')->nullable();
             $table->integer('jumlahsaudaraangkat')->nullable();
-            $table->string('bahasaseharihari');
-            $table->float('beratbadan');
-            $table->float('tinggibadan');
+            $table->string('bahasaseharihari')->nullable()->index();
+            $table->float('beratbadan')->nullable()->index();
+            $table->float('tinggibadan')->nullable()->index();
             $table->unsignedBigInteger('golongandarah_id')->nullable()->index();
             $table->foreign('golongandarah_id')->references('id')->on('golongandarah')->onDelete('set null')->onUpdate('cascade');
             $table->string('penyakitpernahdiderita')->nullable();
-            $table->text('alamattempattinggal');
+            $table->text('alamattempattinggal')->nullable()->index();
             $table->string('nomortelepon')->nullable();
             $table->unsignedBigInteger('statustempattinggal_id')->nullable()->index();
             $table->foreign('statustempattinggal_id')->references('id')->on('statustempattinggal')->onDelete('set null')->onUpdate('cascade');
@@ -75,7 +75,7 @@ return new class extends Migration
             $table->string('nopendaftaran')->index();
 
             //personal info
-            $table->string('nohandphone')->index();
+            $table->string('nohandphone')->nullable()->index();
             $table->timestamps();
         });
     }

@@ -13,12 +13,22 @@ class StatusSiswaSeeder extends Seeder
     public function run(): void
     {
         $data = [
-                [
-                    'kdprofile' => '1',
-                    'statusenabled' => '1',
-                    'nama' => 'Lulus',
-                ]
-            ];
+            [
+                'kdprofile' => '1',
+                'statusenabled' => '1',
+                'nama' => 'Lulus',
+            ],
+            [
+                'kdprofile' => '1',
+                'statusenabled' => '1',
+                'nama' => 'DO',
+            ],
+            [
+                'kdprofile' => '1',
+                'statusenabled' => '1',
+                'nama' => 'Cuti',
+            ]
+        ];
 
         foreach ($data as $d) {
             \App\Models\Master\StatusSiswa::create($d);
