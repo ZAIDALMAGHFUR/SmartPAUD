@@ -16,12 +16,17 @@ class KelasSeeder extends Seeder
             [
                 'kdprofile' => '1',
                 'statusenabled' => '1',
-                'nama' => 'A Bersar',
+                'nama' => 'Kelas A',
             ],
             [
                 'kdprofile' => '1',
                 'statusenabled' => '1',
-                'nama' => 'A Kecil',
+                'nama' => 'Kelas A Kecil',
+            ],
+            [
+                'kdprofile' => '1',
+                'statusenabled' => '1',
+                'nama' => 'Kelas A Besar',
             ],
         ];
 

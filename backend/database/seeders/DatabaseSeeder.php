@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
             JadwalPelajaranSeeder::class,
             PrestasiSiswaSeeder::class,
             RiawayatKesehatanSiswaSeeder::class,
+            KelasSiswaSeeder::class,
         ]);
     }
 }
