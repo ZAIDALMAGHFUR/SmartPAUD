@@ -33,6 +33,8 @@ class SiswaController extends Controller
             'pendidikanWali',
             'hubunganWali',
             'pekerjaanWali',
+            'prestasiSiswas',
+            'RiawayatKesehatanSiswa',
             'TahunAjaran'
         ])
         ->where('statusenabled', $this->statusEnabled())
@@ -67,6 +69,8 @@ class SiswaController extends Controller
             'pendidikanWali',
             'hubunganWali',
             'pekerjaanWali',
+            'prestasiSiswas',
+            'RiawayatKesehatanSiswa',
             'TahunAjaran'
         ])->find($id);
 

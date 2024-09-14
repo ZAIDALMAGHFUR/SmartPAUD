@@ -170,6 +170,16 @@ class Siswa extends Model
         return $this->belongsTo(Pekerjaan::class, 'pekerjaan_wali_id');
     }
 
+    public function prestasiSiswas()
+    {
+        return $this->hasMany(PrestasiSiswa::class, 'siswa_id');
+    }
+
+    public function RiawayatKesehatanSiswa()
+    {
+        return $this->hasMany(PrestasiSiswa::class, 'siswa_id');
+    }
+
     protected static function boot()
     {
         parent::boot();
