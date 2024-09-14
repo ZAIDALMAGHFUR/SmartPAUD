@@ -58,6 +58,11 @@ class DatabaseSeeder extends Seeder
             EkstrakurikulerSiswaSeeder::class,
             SikapSiswaSeeder::class,
             SikapSiswaTransaksiSeeder::class,
+            MateriSiswaSeeder::class,
+            TugasSiswaSeeder::class,
+            TugasSiswaDetailSeeder::class,
+            JawabanTugasSiswaSeeder::class,
+            JawabanTugasSiswaDetailSeeder::class,
         ]);
     }
 }

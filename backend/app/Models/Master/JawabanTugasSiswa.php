@@ -14,7 +14,7 @@ class JawabanTugasSiswa extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'siswatransaksi_id',
+        'kelassiswa_id',
         'tugassiswa_id',
         'guru_id',
         'tgljawab',
@@ -26,9 +26,9 @@ class JawabanTugasSiswa extends Model
         return $this->belongsTo(TugasSiswa::class, 'tugassiswa_id');
     }
 
-    public function siswaTransaksi()
+    public function KelasSiswa()
     {
-        return $this->belongsTo(SiswaTransaksi::class, 'siswatransaksi_id');
+        return $this->belongsTo(KelasSiswa::class, 'kelassiswa_id');
     }
 
     public function guru()
