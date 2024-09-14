@@ -14,6 +14,6 @@ class SikapSiswa extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'name',
+        'nama',
     ];
 }

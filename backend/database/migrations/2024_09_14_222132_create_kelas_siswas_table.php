@@ -23,6 +23,9 @@ return new class extends Migration
             $table->foreign('kelas_id')->references('id')->on('kelas')->onDelete('set null')->onUpdate('cascade');
             $table->unsignedBigInteger('walikelas_id')->nullable()->index();
             $table->foreign('walikelas_id')->references('id')->on('pegawai')->onDelete('set null')->onUpdate('cascade');
+            $table->datetime('tglmasuk')->nullable();
+            $table->datetime('tglkeluar')->nullable();
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

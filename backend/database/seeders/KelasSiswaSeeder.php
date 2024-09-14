@@ -16,6 +16,9 @@ class KelasSiswaSeeder extends Seeder
             'tahunajaran_id' => 1,
             'kelas_id' => 1,
             'walikelas_id' => 1,
+            'tglmasuk' => '2021-08-01',
+            'tglkeluar' => null,
+            'keterangan' => 'Siswa baru',
         ]);
 
         KelasSiswa::create([
@@ -25,6 +28,9 @@ class KelasSiswaSeeder extends Seeder
             'tahunajaran_id' => 2,
             'kelas_id' => 2,
             'walikelas_id' => 2,
+            'tglmasuk' => '2021-08-01',
+            'tglkeluar' => null,
+            'keterangan' => 'Siswa baru',
         ]);
 
         KelasSiswa::create([
@@ -34,6 +40,9 @@ class KelasSiswaSeeder extends Seeder
             'tahunajaran_id' => 3,
             'kelas_id' => 3,
             'walikelas_id' => 3,
+            'tglmasuk' => '2021-08-01',
+            'tglkeluar' => null,
+            'keterangan' => 'Siswa baru',
         ]);
     }
 }

@@ -53,6 +53,9 @@ class KelasSiswaController extends Controller
                 'tahunajaran_id' => $request->tahunajaran_id,
                 'kelas_id' => $request->kelas_id,
                 'walikelas_id' => $request->walikelas_id,
+                'tglmasuk' => $request->tglmasuk,
+                'tglkeluar' => $request->tglkeluar,
+                'keterangan' => $request->keterangan,
             ]);
 
             $log = $this->logActivity('Create', $request, json_encode($kelasSiswa));
@@ -82,6 +85,9 @@ class KelasSiswaController extends Controller
                     'tahunajaran_id' => $request->tahunajaran_id,
                     'kelas_id' => $request->kelas_id,
                     'walikelas_id' => $request->walikelas_id,
+                    'tglmasuk' => $request->tglmasuk,
+                    'tglkeluar' => $request->tglkeluar,
+                    'keterangan' => $request->keterangan,
                 ]);
 
                 $log = $this->logActivity('Update', $request, json_encode($kelasSiswa));

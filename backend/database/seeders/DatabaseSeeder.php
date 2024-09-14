@@ -54,6 +54,10 @@ class DatabaseSeeder extends Seeder
             PrestasiSiswaSeeder::class,
             RiawayatKesehatanSiswaSeeder::class,
             KelasSiswaSeeder::class,
+            EkstrakurikulerSeeder::class,
+            EkstrakurikulerSiswaSeeder::class,
+            SikapSiswaSeeder::class,
+            SikapSiswaTransaksiSeeder::class,
         ]);
     }
 }

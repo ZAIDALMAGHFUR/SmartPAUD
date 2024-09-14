@@ -14,7 +14,7 @@ class EkstrakurikulerSiswa extends Model
     protected $fillable = [
         'kdprofile',
         'statusenabled',
-        'siswatransaksi_id',
+        'kelassiswa_id',
         'guru_id',
         'tglmasuk',
         'tglkeluar',
@@ -31,8 +31,8 @@ class EkstrakurikulerSiswa extends Model
     {
         return $this->belongsTo(Pegawai::class);
     }
-    public function siswaTransaksi()
+    public function KelasSiswa()
     {
-        return $this->belongsTo(SiswaTransaksi::class);
+        return $this->belongsTo(KelasSiswa::class);
     }
 }
