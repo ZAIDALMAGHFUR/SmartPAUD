@@ -20,7 +20,7 @@ return new class extends Migration
             $table->integer('durasi_ujian')->index()->nullable();
             $table->unsignedBigInteger('tahunajaran_id')->nullable()->index();
             $table->foreign('tahunajaran_id')->references('id')->on('tahunajaran')->onDelete('set null')->onUpdate('cascade');
-            $table->enum('tipe_ujian', ['uas', 'uts'])->nullable();
+            $table->enum('tipe_ujian', ['uas','uts','un','us','ujian_praktek','kompetensi','uat'])->nullable();
             $table->enum('tipe_soal', ['essay', 'pilihan_ganda'])->nullable();
             $table->enum('random_soal', ['1', '0'])->nullable();
             $table->enum('lihat_hasil', ['1', '0'])->nullable();
