@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('ekstrakurikulersiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('kdprofile');
-            $table->boolean('statusenabled');
+            $table->string('kdprofile')->index()->nullable();
+            $table->boolean('statusenabled')->index()->nullable();
             $table->unsignedBigInteger('kelassiswa_id')->nullable()->index();
             $table->foreign('kelassiswa_id')->references('id')->on('kelassiswa')->onDelete('cascade')->nullable()->index();
             $table->unsignedBigInteger('guru_id')->nullable()->index();
             $table->foreign('guru_id')->references('id')->on('pegawai');
-            $table->datetime('tglmasuk')->nullable();
-            $table->datetime('tglkeluar')->nullable();
-            $table->string('keterangan')->nullable();
+            $table->datetime('tglmasuk')->index()->nullable();
+            $table->datetime('tglkeluar')->index()->nullable();
+            $table->string('keterangan')->index()->nullable();
             $table->unsignedBigInteger('ekstrakurikuler_id')->nullable()->index();
             $table->foreign('ekstrakurikuler_id')->references('id')->on('ekstrakurikuler');
             $table->timestamps();

@@ -13,16 +13,16 @@ return new class extends Migration
     {
         Schema::create('jawabantugassiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('kdprofile');
-            $table->boolean('statusenabled');
+            $table->string('kdprofile')->index()->nullable();
+            $table->boolean('statusenabled')->index()->nullable();
             $table->unsignedBigInteger('kelassiswa_id')->nullable()->index();
             $table->foreign('kelassiswa_id')->references('id')->on('kelassiswa')->onDelete('cascade')->nullable()->index();
             $table->unsignedBigInteger('tugassiswa_id')->index();
             $table->foreign('tugassiswa_id')->references('id')->on('tugassiswa')->onDelete('cascade');
             $table->unsignedBigInteger('guru_id')->nullable()->index();
             $table->foreign('guru_id')->references('id')->on('pegawai');
-            $table->datetime('tgljawab')->nullable();
-            $table->string('nilaiakhir')->nullable();
+            $table->datetime('tgljawab')->index()->nullable();
+            $table->string('nilaiakhir')->index()->nullable();
             $table->timestamps();
         });
     }

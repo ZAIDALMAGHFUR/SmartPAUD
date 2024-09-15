@@ -22,7 +22,6 @@ class JadwalUjian extends Model
         'guru_id',
         'matapelajaran_id',
         'kelas_id',
-        'tahunajaran_id',
     ];
 
     public function guru()
@@ -38,10 +37,5 @@ class JadwalUjian extends Model
     public function kelas()
     {
         return $this->belongsTo(Kelas::class, 'kelas_id');
-    }
-
-    public function tahunajaran()
-    {
-        return $this->belongsTo(TahunAjaran::class, 'tahunajaran_id');
     }
 }

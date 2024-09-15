@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('tugassiswa', function (Blueprint $table) {
             $table->id();
-            $table->string('kdprofile');
-            $table->boolean('statusenabled');
-            $table->string('name')->index();
-            $table->enum('type', ['file', 'link']);
-            $table->string('file_or_link')->nullable();
-            $table->text('deskripsi')->nullable();
-            $table->dateTime('pengumpulan')->nullable();
-            $table->enum('sudahdinilai', ['0', '1'])->nullable();
+            $table->string('kdprofile')->index()->nullable();
+            $table->boolean('statusenabled')->index()->nullable();
+            $table->string('name')->index()->nullable();
+            $table->enum('type', ['file', 'link'])->index()->nullable();
+            $table->string('file_or_link')->index()->nullable();
+            $table->text('deskripsi')->index()->nullable();
+            $table->dateTime('pengumpulan')->index()->nullable();
+            $table->enum('sudahdinilai', ['0', '1'])->index()->nullable();
             $table->unsignedBigInteger('kelas_id')->nullable()->index();
             $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->unsignedBigInteger('tahunajaran_id')->nullable()->index();

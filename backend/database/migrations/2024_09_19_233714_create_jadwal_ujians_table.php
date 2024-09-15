@@ -8,22 +8,24 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('materisiswa', function (Blueprint $table) {
+        Schema::create('jadwalujian', function (Blueprint $table) {
             $table->id();
             $table->string('kdprofile')->index()->nullable();
             $table->boolean('statusenabled')->index()->nullable();
-            $table->string('name')->index()->nullable();
-            $table->enum('type', ['file', 'link'])->index()->nullable();
-            $table->longText('file_or_link')->index()->nullable();
-            $table->unsignedBigInteger('kelas_id')->nullable()->index();
-            $table->foreign('kelas_id')->references('id')->on('kelas');
-            $table->unsignedBigInteger('tahunajaran_id')->nullable()->index();
-            $table->foreign('tahunajaran_id')->references('id')->on('tahunajaran');
+            $table->date('tanggal_ujian')->index()->nullable();
+            $table->enum('status_ujian', ['aktif', 'nonaktif', 'draft'])->default('nonaktif')->index()->nullable();
+            $table->string('started_at')->index()->nullable();;
+            $table->string('ended_at')->index()->nullable();;
+            $table->enum('guru_can_manage', ['1', '0'])->default('0');
             $table->unsignedBigInteger('guru_id')->nullable()->index();
             $table->foreign('guru_id')->references('id')->on('pegawai');
+            $table->unsignedBigInteger('kelas_id')->nullable()->index();
+            $table->foreign('kelas_id')->references('id')->on('kelas');
             $table->unsignedBigInteger('matapelajaran_id')->nullable()->index();
             $table->foreign('matapelajaran_id')->references('id')->on('matapelajaran');
             $table->timestamps();
@@ -32,9 +34,11 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('materisiswa');
+        Schema::dropIfExists('jadwalujian');
     }
 };

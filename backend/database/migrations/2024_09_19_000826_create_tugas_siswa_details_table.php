@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('tugassiswadetail', function (Blueprint $table) {
             $table->id();
-            $table->string('kdprofile');
-            $table->boolean('statusenabled');
+            $table->string('kdprofile')->index()->nullable();
+            $table->boolean('statusenabled')->index()->nullable();
             $table->unsignedBigInteger('tugassiswa_id')->nullable()->index();
             $table->foreign('tugassiswa_id')->references('id')->on('tugassiswa');
             $table->string('pertanyaan')->index();

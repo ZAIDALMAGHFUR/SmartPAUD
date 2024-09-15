@@ -16,7 +16,7 @@ class TugasSiswaDetailSeeder extends Seeder
             [
                 'kdprofile' => '1',
                 'statusenabled' => true,
-                'tugassiswa_id' => 1, // Sesuaikan dengan ID tugas yang valid
+                'tugassiswa_id' => 1,
                 'pertanyaan' => 'Apa ibukota dari Indonesia?',
                 'pilihanjawaban' => json_encode([
                     'Jakarta',
@@ -33,19 +33,19 @@ class TugasSiswaDetailSeeder extends Seeder
             [
                 'kdprofile' => '1',
                 'statusenabled' => true,
-                'tugassiswa_id' => 1, // Sesuaikan dengan ID tugas yang valid
+                'tugassiswa_id' => 1,
                 'pertanyaan' => 'Jelaskan proses siklus air!',
-                'pilihanjawaban' => null, // Soal ini tidak memiliki pilihan ganda
+                'pilihanjawaban' => null,
                 'jawabanbenar' => null,
                 'is_essay' => true,
-                'jawaban_essay' => null, // Akan diisi oleh siswa
+                'jawaban_essay' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'kdprofile' => '1',
                 'statusenabled' => true,
-                'tugassiswa_id' => 2, // Sesuaikan dengan ID tugas yang valid
+                'tugassiswa_id' => 2,
                 'pertanyaan' => 'Apa warna bendera Indonesia?',
                 'pilihanjawaban' => json_encode([
                     'Merah Putih',
@@ -62,12 +62,12 @@ class TugasSiswaDetailSeeder extends Seeder
             [
                 'kdprofile' => '1',
                 'statusenabled' => true,
-                'tugassiswa_id' => 2, // Sesuaikan dengan ID tugas yang valid
+                'tugassiswa_id' => 2,
                 'pertanyaan' => 'Apa pendapatmu tentang pentingnya pendidikan?',
-                'pilihanjawaban' => null, // Soal ini tidak memiliki pilihan ganda
+                'pilihanjawaban' => null,
                 'jawabanbenar' => null,
                 'is_essay' => true,
-                'jawaban_essay' => null, // Akan diisi oleh siswa
+                'jawaban_essay' => null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

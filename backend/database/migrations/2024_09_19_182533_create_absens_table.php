@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('absen', function (Blueprint $table) {
             $table->id();
-            $table->string('kdprofile');
-            $table->boolean('statusenabled');
-            $table->boolean('status')->nullable();
-            $table->text('rangkuman')->nullable();
-            $table->text('beritaacara')->nullable();
+            $table->string('kdprofile')->index()->nullable();
+            $table->boolean('statusenabled')->index()->nullable();
+            $table->boolean('status')->index()->nullable();
+            $table->text('rangkuman')->index()->nullable();
+            $table->text('beritaacara')->index()->nullable();
             $table->unsignedBigInteger('kelassiswa_id')->nullable()->index();
             $table->foreign('kelassiswa_id')->references('id')->on('kelassiswa')->onDelete('cascade')->nullable()->index();
             $table->unsignedBigInteger('guru_id')->nullable()->index();

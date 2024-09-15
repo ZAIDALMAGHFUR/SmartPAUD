@@ -64,6 +64,12 @@ class DatabaseSeeder extends Seeder
             JawabanTugasSiswaSeeder::class,
             JawabanTugasSiswaDetailSeeder::class,
             AbsenSeeder::class,
+            JadwalUjianSeeder::class,
+            UjianSeeder::class,
+            UjianSiswaSeeder::class,
+            SoalUjianPgSeeder::class,
+            SoalUjianEssaySeeder::class,
+            UjianSiswaHasilSeeder::class,
         ]);
     }
 }

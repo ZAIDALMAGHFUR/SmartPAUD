@@ -9,7 +9,7 @@ class Ujian extends Model
 {
     use HasFactory;
 
-    protected $table = 'ujians';
+    protected $table = 'ujian';
 
     protected $fillable = [
         'kdprofile',
@@ -17,6 +17,7 @@ class Ujian extends Model
         'judul',
         'deskripsi',
         'durasi_ujian',
+        'tahunajaran_id',
         'tipe_soal',
         'tipe_ujian',
         'random_soal',
@@ -25,13 +26,42 @@ class Ujian extends Model
         'jadwalujian_id',
     ];
 
+    public function jadwalUjian()
+    {
+        return $this->belongsTo(JadwalUjian::class);
+    }
+    public function TahunAjaran()
+    {
+        return $this->belongsTo(TahunAjaran::class);
+    }
+
+    public function UjianSiswa()
+    {
+        return $this->hasMany(UjianSiswa::class);
+    }
+
+    public function soalUjianPg()
+    {
+        return $this->hasMany(SoalUjianPg::class);
+    }
+
+    public function soalUjianEssay()
+    {
+        return $this->hasMany(SoalUjianEssay::class);
+    }
+
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
+
+    public function MataPelajaran()
+    {
+        return $this->belongsTo(MataPelajaran::class);
+    }
+
     public function getTipeSoalAttribute($value)
     {
         return $value == 'essay' ? 'Essay' : 'Pilihan Ganda';
-    }
-
-    public function jadwalujian()
-    {
-        return $this->belongsTo(JadwalUjian::class, 'jadwalujian_id');
     }
 }
