@@ -17,16 +17,16 @@ class Absen extends Model
         'status',
         'rangkuman',
         'beritaacara',
-        'siswatransaksi_id',
+        'kelassiswa_id',
         'guru_id',
         'matapelajaran_id',
         'kelas_id',
         'tahunajaran_id',
     ];
 
-    public function siswatransaksi()
+    public function KelasSiswa()
     {
-        return $this->belongsTo(SiswaTransaksi::class, 'siswatransaksi_id');
+        return $this->belongsTo(KelasSiswa::class, 'siswatransaksi_id');
     }
 
     public function guru()

@@ -63,6 +63,7 @@ class DatabaseSeeder extends Seeder
             TugasSiswaDetailSeeder::class,
             JawabanTugasSiswaSeeder::class,
             JawabanTugasSiswaDetailSeeder::class,
+            AbsenSeeder::class,
         ]);
     }
 }
