@@ -86,7 +86,9 @@ class AgamaController extends Controller
         $agama = App\Models\Master\Agama::find($id);
 
         if ($agama) {
-            $agama->delete();
+            $agama->update([
+                'statusenabled' => false
+            ]);
             $log = $this->logActivity('Delete', $request, json_encode($agama));
             return $this->successResponse('Agama deleted successfully', $agama);
         } else {

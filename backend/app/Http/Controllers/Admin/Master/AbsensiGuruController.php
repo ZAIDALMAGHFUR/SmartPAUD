@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Admin\Master;
 
-use App;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use App;
 
-
-class AbsenController extends Controller
+class AbsensiGuruController extends Controller
 {
     use  App\Traits\ApiResponse\ApiResponse;
     use App\Traits\LogingSystems\LogingSystems;
@@ -19,7 +16,7 @@ class AbsenController extends Controller
     {
         $perPage = 100;
         $absens = Cache::remember('absen_list_' . $this->kdprofile(), 60, function () use ($perPage) {
-            return App\Models\Master\Absen::with([
+            return App\Models\Master\AbsensiGuru::with([
                 'siswatransaksi',
                 'guru',
                 'matapelajaran',
@@ -40,7 +37,7 @@ class AbsenController extends Controller
 
     public function show($id)
     {
-        $absen = App\Models\Master\Absen::with([
+        $absen = App\Models\Master\AbsensiGuru::with([
             'siswatransaksi',
             'guru',
             'matapelajaran',
@@ -73,7 +70,7 @@ class AbsenController extends Controller
                 'tahunajaran_id' => 'required',
             ]);
 
-            $absen = App\Models\Master\Absen::create([
+            $absen = App\Models\Master\AbsensiGuru::create([
                 'kdprofile' => $this->kdprofile(),
                 'statusenabled' => $this->statusEnabled(),
                 'status' => $request->status,
@@ -107,7 +104,7 @@ class AbsenController extends Controller
                 'tahunajaran_id' => 'required',
             ]);
 
-            $absen = App\Models\Master\Absen::where('id', $id)
+            $absen = App\Models\Master\AbsensiGuru::where('id', $id)
             ->where('statusenabled', $this->statusEnabled())
             ->where('kdprofile', $this->kdprofile())
             ->first();
@@ -139,7 +136,7 @@ class AbsenController extends Controller
     public function destroy(Request $request, $id)
     {
         try {
-            $absen = App\Models\Master\Absen::where('id', $id)
+            $absen = App\Models\Master\AbsensiGuru::where('id', $id)
             ->where('statusenabled', $this->statusEnabled())
             ->where('kdprofile', $this->kdprofile())
             ->first();

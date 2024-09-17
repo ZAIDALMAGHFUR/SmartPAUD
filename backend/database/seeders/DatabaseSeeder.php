@@ -70,6 +70,8 @@ class DatabaseSeeder extends Seeder
             SoalUjianPgSeeder::class,
             SoalUjianEssaySeeder::class,
             UjianSiswaHasilSeeder::class,
+            AbsensiGuruSeeder::class,
+            RaportSiswaSeeder::class,
         ]);
     }
 }
